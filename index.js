@@ -55,7 +55,7 @@
           scrollTop  = document.documentElement.scrollTop || document.body.scrollTop,
           scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft
 
-      if (! Object.getOwnPropertyNames(contentNode).length) { // if contentNode is empty
+      if (Object.getOwnPropertyNames(contentNode).length) { // if contentNode isn't empty
         nodel[0][0].appendChild(contentNode) // TODO: love a tidier way to do this
       } else {
         nodel.html(content)
