@@ -55,7 +55,7 @@
           scrollTop  = document.documentElement.scrollTop || document.body.scrollTop,
           scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft
 
-      if (contentNode !== null) {
+      if (! Object.getOwnPropertyNames(contentNode).length) { // if contentNode is empty
         nodel[0][0].appendChild(contentNode) // TODO: love a tidier way to do this
       } else {
         nodel.html(content)
@@ -146,7 +146,7 @@
     //
     // Returns html value or tip
     tip.contentNode = function(v) {
-      if (!arguments.length || !(v instanceof HTMLElement)) return fromNode
+      if (!arguments.length) return fromNode
       fromNode = v == null ? v : d3.functor(v)
 
       return tip
@@ -178,7 +178,7 @@
     function d3_tip_direction() { return 'n' }
     function d3_tip_offset() { return [0, 0] }
     function d3_tip_html() { return ' ' }
-    function d3_tip_contentFromNode() { return null }
+    function d3_tip_contentFromNode() { return {} }
 
     var direction_callbacks = d3.map({
       n:  direction_n,
