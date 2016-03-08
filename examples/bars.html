@@ -51,10 +51,20 @@
 
   </div>
   <script type="text/javascript">
+    var testNode = document.createElement('p');
+    var testTextNode = document.createTextNode('hello there :)');
+    testNode.appendChild(testTextNode);
+
+//    var tip = d3.tip()
+//      .attr('class', 'd3-tip')
+//      .html(function(d) { return '<span>' + d.total + '</span>' + ' entries' })
+//      .offset([-12, 0])
+
+
     var tip = d3.tip()
-      .attr('class', 'd3-tip')
-      .html(function(d) { return '<span>' + d.total + '</span>' + ' entries' })
-      .offset([-12, 0])
+            .attr('class', 'd3-tip')
+            .contentNode(testNode)
+            .offset([-12, 0])
 
     var w = 800,
         h = 300,
